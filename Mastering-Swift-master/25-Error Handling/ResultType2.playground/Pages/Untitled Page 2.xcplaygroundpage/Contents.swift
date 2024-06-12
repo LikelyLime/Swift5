@@ -46,31 +46,47 @@ enum ApiError: Error {
    case invalidFormat
 }
 
-typealias CompletionHandler = (BookListData?, Error?) -> ()
+typealias CompletionHandler = (Result<BookListData, ApiError>) -> ()
 
 func parseBookList(completion: @escaping CompletionHandler) {
    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
       if let error = error {
-         completion(nil, error)
+          completion(.failure(.general))
          return
       }
 
       guard let data = data else {
-         completion(nil, nil)
+          completion(.failure(.general))
          return
       }
 
       do {
          let list = try JSONDecoder().decode(BookListData.self, from: data)
-         completion(list, nil)
+          completion(.success(list))
       } catch {
-         completion(nil, error)
+          completion(.failure(.general))
       }
    }
    task.resume()
 }
 
-
+parseBookList{(result) in
+    switch result {
+    case .success(let data):
+        data.list.forEach(print($0.title))
+    case.failure(let error):
+        print(error.localizedDescription)
+        
+        switch error{
+        case .general:
+            //code
+            break
+        case .invalidFormat:
+            //code
+            break
+        }
+    }
+}
 
 
 

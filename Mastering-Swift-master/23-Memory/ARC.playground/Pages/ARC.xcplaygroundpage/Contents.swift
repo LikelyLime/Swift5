@@ -24,7 +24,16 @@ import UIKit
 /*:
  # Automatic Reference Counting
  */
+//메모리 관리모델
+//stack에 저장되는 값은 자동으로 제거되기 때문에 특별한 관리는 필요 없다.
+//heap의 경우에는 값을 직접 삭제해 줘야한다.
+//메모리 관리모델의 경우 class인스턴스의 메모리를 관리한다.
+//object-c : MRC, ARC
+//swift : ARC
 
+//strong Reference : 강한참조
+// 기본적인 참조형식으로 소유할때마다 참조카운트가 1씩증가 소유를 포기할때마다 1씩감소
+//
 class Person {
    var name = "John Doe"
    
@@ -33,13 +42,17 @@ class Person {
    }
 }
 
+var person1: Person?
+var person2: Person?
+var person3: Person?
 
+person1 = Person() //강한참조
+person2 = person1
+person3 = person1 //참조카운트 3
 
-
-
-
-
-
+person1 = nil //소유권 포기
+person2 = nil
+person3 = nil //참조카운트 0
 
 
 

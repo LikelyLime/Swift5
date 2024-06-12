@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered' buildActiveScheme='true' importAppTypes='true'>
+    <pages>
+        <page name='Algorithm1'/>
+        <page name='Algorithm2'/>
+        <page name='Algorithm3'/>
+        <page name='Algorithm4'/>
+        <page name='Algorithm5'/>
+        <page name='Algorithm6'/>
+        <page name='Algorithm7'/>
+        <page name='Algorithm8'/>
+        <page name='Algorithm9'/>
+        <page name='Algorithm10'/>
+        <page name='Algorithm65'/>
+        <page name='Algorithm11'/>
+        <page name='Algorithm12'/>
+        <page name='Algorithm13'/>
+        <page name='Algorithm14'/>
+        <page name='Algorithm15'/>
+        <page name='Algorithm16'/>
+        <page name='Algorithm17'/>
+        <page name='Algorithm66'/>
+        <page name='Algorithm18'/>
+        <page name='Algorithm19'/>
+        <page name='Algorithm20'/>
+        <page name='Algorithm21'/>
+        <page name='Algorithm24'/>
+        <page name='Algorithm22'/>
+        <page name='Algorithm23'/>
+        <page name='Algorithm25'/>
+        <page name='Algorithm26'/>
+        <page name='Algorithm27'/>
+        <page name='Algorithm28'/>
+        <page name='Algorithm29'/>
+        <page name='Algorithm30'/>
+        <page name='Algorithm31'/>
+        <page name='AlgorithmEx'/>
+        <page name='Algorithm32'/>
+        <page name='Algorithm33'/>
+        <page name='Algorithm34'/>
+        <page name='Algorithm35'/>
+        <page name='Algorithm36'/>
+        <page name='Algorithm64'/>
+        <page name='Algorithm42'/>
+        <page name='Algorithm37'/>
+    </pages>
+</playground>

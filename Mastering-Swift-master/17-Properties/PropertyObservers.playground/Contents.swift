@@ -25,8 +25,17 @@ import UIKit
  # Property Observer
  ![property-observer](property-observer.png)
  */
-
+//속성 감시자
 class Size {
-   var width = 0.0
+    var width = 0.0 {
+        willSet{
+            print(width, "=>1", newValue)//속성에 값이 저장되기 직전 저장됨
+        }
+        didSet{
+            print(oldValue, "=>", width)//속성에 값이 저장된 직후 호출됨
+        }
+    }
 }
 
+let s = Size()
+s.width = 123

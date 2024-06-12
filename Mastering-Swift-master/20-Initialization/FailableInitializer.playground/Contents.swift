@@ -25,13 +25,29 @@ import UIKit
  # Failable Initializer
  ![failable](failable.png)
  */
-
+//Failable Initializer : 초기화에 실패를 하더라도 nil을 리턴 하며 error가 나오지 않는다.
+// init?의 경우에는 Optional형식으로 리턴하며 실패하면 nil을 반환한다.
+// init!의 경우에는 강제추출되어 nonOptional형식으로 추출됩니다.다만 리턴에 실패하면 crush발생
 struct Position {
    let x: Double
    let y: Double
+    
+    init?(x:Double, y: Double){
+        guard x >= 0.0, y >= 0.0 else{return nil}
+        self.x = x
+        self.y = y
+    }
+    
+    init!(value: Double){
+        guard value >= 0.0 else{return nil}
+//        self.x = value
+//        self.y = value
+        self.init(x: value, y: value)
+    }
 }
 
+var a = Position(x: 12, y: 34)
+a = Position(x: -12, y: 0)
 
-
-
-
+var b = Position(value: 12)
+b = Position(value: -12)

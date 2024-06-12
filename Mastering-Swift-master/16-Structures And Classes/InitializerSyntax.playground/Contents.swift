@@ -25,10 +25,31 @@ import UIKit
  # Initializer Syntax
  ![init](init.png)
  */
+//생성자의 경우에는 속성을 초기화하는 부분만 구현
+ //생성자의 경우에는 속성 초기화가 유일한 목적
+ 
+class Postion{
+    var x: Double
+    var y: Double
+    
+    init(){
+        x = 0.0
+        y = 0.0
+    }
+    
+    //파라미터가 있는 생성자
+    init(value: Double){
+        x = value
+        y = value
+    }
+}
+let a = Postion()
+a.x
+a.y
 
-
-
-
+let b = Postion(value: 100)
+b.x
+b.y
 
 
 

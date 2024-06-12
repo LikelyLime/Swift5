@@ -27,10 +27,20 @@ import Foundation
  # Class
  ![Class](class.png)
  */
+// default값을 넣을 수 있다.
+class Person{
+    var name = "John Done"
+    var age = 43
+    
+    func speak(){
+        print("Hello")
+    }
+}
 
+let p = Person()
 
-
-
+p.name
+p.speak()
 
 
 

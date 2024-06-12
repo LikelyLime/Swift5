@@ -27,7 +27,9 @@ import Foundation
  # Weak Reference
  ![weak](weak.png)
  */
-
+//해결방법
+//weak Reference(약한참조) : 소유하지만 참조카운트에 변화를 주지 않음
+//unowned Reference(무소유 참조) :
 class Person {
    var name = "John Doe"
    var car: Car?
@@ -39,7 +41,7 @@ class Person {
 
 class Car {
    var model: String
-   weak var lessee: Person?
+   weak var lessee: Person?//약한 참조
    
    init(model: String) {
       self.model = model
@@ -56,7 +58,7 @@ var rentedCar: Car? = Car(model: "Porsche")
 person?.car = rentedCar
 rentedCar?.lessee = person
 
-person = nil
+person = nil //person instance가 참조카운트가 0이되어 없어진다. 자동으로 car인스턴스참조카운트도 1줄어든다.
 rentedCar = nil
 
 

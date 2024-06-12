@@ -25,5 +25,26 @@ import UIKit
  # Subscript Requirements
  ![subscript](subscript.png)
  */
-
-
+protocol List{
+    subscript(idx: Int) -> Int{get}
+}
+struct DataStore: List{
+    subscript(idx: Int) -> Int {
+        return 0
+    }
+}
+//get메서드는 필수이고 set의 경우에는 경우에따라 생략 가능
+//set추가
+protocol List1{
+    subscript(idx: Int) -> Int{get set}
+}
+struct DataStore1: List1{
+    subscript(idx: Int) -> Int {
+        get{
+            return 0
+        }
+        set{
+            
+        }
+    }
+}

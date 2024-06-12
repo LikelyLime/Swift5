@@ -28,8 +28,14 @@ import UIKit
  ![type1](type1.png)
  ![type2](type2.png)
  */
+class Math{
+    static let pi = 3.14
+}
 
-
+let m = Math()
+//m.pi 형식속성이기 때문에 m.pi가 안됨
+Math.pi
+//기본적으로 지연속성이기 때문에 처음 접근 할때 초기화가 된다.
 
 
 
@@ -41,8 +47,18 @@ import UIKit
  ![type4](type4.png)
  */
 
-
-
+//위의 두개의 차이는 class로 선언되었을 때는 오버라이딩이 허용되고 static의 경우에는 허용이되지 않는다.
+enum Weekday: Int {
+    case sunday = 1, monday, tuesday, wdnesday, thursday, friday, saturday
+    
+    static var today : Weekday{
+        let cal = Calendar.current
+        let today = Date()
+        let weekday = cal.component(.weekday, from: today)
+        return Weekday(rawValue: weekday)!
+    }
+}
+Weekday.today
 
 
 

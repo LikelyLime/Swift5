@@ -26,8 +26,18 @@ import UIKit
  ![identity-op](identity-op.png)
  */
 
+class A {
+    
+}
 
+let a = A()
+let b = a
+let c = A()
 
+a === b
+a !== b
+
+a !== c
 
 
 

@@ -27,12 +27,30 @@ import UIKit
  ![class-func](class-func.png)
  ![call](call.png)
  */
+//형식에 연관된 메서드
+//static 이나 class를 선언되며 static의 경우에는 오버라이딩이 안된다.
+class Circle{
+    static let pi = 3.14
+    var radius = 0.0
+    
+    func getArea() -> Double {
+        return radius * radius * Circle.pi
+    }
+    
+    static func printPi(){
+        print(pi)
+    }
+}
 
 
+Circle.printPi()
 
-
-
-
+class StrokeCircle: Circle{
+    //이 부분은 stiatic func printPi를 class로 변경하면 해결된다.
+//    override static func printPi(){
+//        print(pi)
+//    }
+}
 
 
 

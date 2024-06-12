@@ -36,11 +36,30 @@ class Figure {
    func draw() {
       print("draw \(name)")
    }
+    
+    convenience init(){
+        self.init(name: "unknown")
+    }
 }
 
 class Rectangle: Figure {
-   var width: Double
-   var height: Double
+    var width: Double = 0.0
+    var height: Double = 0.0
+    init(name: String, width: Double, height: Double){
+        //self.name = name
+        self.width = width
+        self.height = height
+        super.init(name: name)  //상속된 속성의 초기화는 상속된 init에 맡긴다.
+    }
+    
+    override init(name: String){
+        self.width = 0
+        self.height = 0
+        super.init(name: name)
+    }
+    convenience init(){
+        self.init(name: "unknown")
+    }//convenience의 경우에는 super클래스를 호출 할 수 없다. 그래서 override한 init을 호출한다.
 }
 
 

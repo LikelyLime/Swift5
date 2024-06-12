@@ -25,13 +25,13 @@ import UIKit
 /*:
  # Generics
  */
-
+//Generics : 형식에 의존하지 않는 범용 코드 작성 가능 , 코드의 재사용성과 유지보수가 수월해지는 장점이 있다.
 func swapInteger(lhs: inout Int, rhs: inout Int) {
    let tmp = lhs
    lhs = rhs
    rhs = tmp
 }
-
+// 위의 함수는 int일때만 정상적으로 기능한다.
 var a = 10
 var b = 20
 
@@ -57,15 +57,24 @@ func swapDouble(lhs: inout Double, rhs: inout Double) {
  ## Generic Function
  ![generic-function](generic-function.png)
  */
-
+//type Parameter : 함수내부에서 파라미터나 리턴형식, 함수 body에서 사용된다.
+//실제 타입으로 대체되는 placeHolder이다.
 func swapValue<T>(lhs: inout T, rhs: inout T) {
    let tmp = lhs
    lhs = rhs
    rhs = tmp
 }
 
-
-
+a = 1
+b = 2
+swapValue(lhs: &a, rhs: &b)
+a //2
+b //1
+var c = 1.2
+var d = 3.4
+swapValue(lhs: &c, rhs: &d)
+c   //3.4
+d   //1.2
 
 
 

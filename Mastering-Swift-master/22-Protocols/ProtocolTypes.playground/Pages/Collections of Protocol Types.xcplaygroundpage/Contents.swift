@@ -26,7 +26,7 @@ import Foundation
 /*:
  # Collections of Protocol Types
  */
-
+//상속과 비슷하게 선언할 수 있다.
 
 protocol Figure {
    func draw()
@@ -57,6 +57,15 @@ let r = Rectangle()
 let c = Circle()
 
 
+//let list = [t, r, c] instance의 형식이 모두 다르고 값형식과 참조 형식이 혼재되어 오류발생
+let list: [Figure] = [t, r, c]
+for item in list{
+    item.draw()
+//    item.raidus Circle에만 있는 속성은 불러오지 못한다.
+    if let c = item as? Circle{
+        c.radius
+    }
+}
 
 
 

@@ -43,4 +43,11 @@ func doSomethingWithResult(data: Int) -> Result<Int, MyError> {
    return .success(data)
 }
 
+let a = doSomethingWithResult(data: 0)
+let b = a.map { $0.isMultiple(of: 2) ? "even number " : "odd number" }
+b
+let c = a.flatMap{ $0.isMultiple(of: 2) ? .success("even number") : .success("odd number")}
+c
 
+//a.mapError(<#T##transform: (MyError) -> Error##(MyError) -> Error#>)
+//a.flatMapError(<#T##transform: (MyError) -> Result<Int, Error>##(MyError) -> Result<Int, Error>#>)

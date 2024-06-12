@@ -28,12 +28,14 @@ import Foundation
  ![required](required.png)
  */
 
+//Required Initializer 필수 생성자
+
 class Figure {
    var name: String
 
-   init(name: String) {
+   required init(name: String) {
       self.name = name
-   }
+   }//required을 선언하면 반드시 subClass에서 구현을 해줘야한다.
 
    func draw() {
       print("draw \(name)")
@@ -43,6 +45,20 @@ class Figure {
 class Rectangle: Figure {
    var width = 0.0
    var height = 0.0
+    
+    init(){
+        width = 0.0
+        height = 0.0
+        super.init(name: "unknown")
+    }
+    
+    required init(name: String){
+        width = 0.0
+        height = 0.0
+        super.init(name: name)
+    }
 }
 
-
+//Figure의 init을 상속받는다.
+//만약 Rectangle에서 name을 파라미터로 받는 init을 직접구현받고 싶다면
+//Required Initializer을 사용하면 된다.

@@ -26,6 +26,7 @@ import Foundation
  # Protocol Composition
  ![composition](composition.png)
  */
+//하나의 형식은 다수의 protocol를 채용할 수 있다.
 
 protocol Resettable {
    func reset()
@@ -64,11 +65,15 @@ class Oval: Circle {
 let r: Resettable = Size()
 let p: Printable = Size()
 
+var rp: Resettable & Printable = Size()
+//rp = Circle() Circle의 경우에는 Resettable만 채용되어있기때문에 rp에는 담을수 없다.
 
 /*:
  ![composition2](composition2.png)
  */
 
+var cr: Circle & Resettable = Circle()
+cr = Oval()
 
 
 

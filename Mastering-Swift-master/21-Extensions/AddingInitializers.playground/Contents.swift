@@ -20,19 +20,57 @@
 //  THE SOFTWARE.
 //
 import UIKit
+import Foundation
 
 /*:
  # Adding Initializers
  */
+extension Date{
+    init?(year: Int, month: Int, day: Int){
+        let cal = Calendar.current
+        var comp = DateComponents()
+        comp.year = year
+        comp.month = month
+        comp.day = day
+        
+        guard let date = cal.date(from: comp) else{
+            return nil
+        }
+        self = date
+    }
+}
+
+Date.init(year: 1993, month: 12, day: 10)
 
 
+//RGB
+extension UIColor{
+    convenience init(red: Int, green: Int, blue: Int){
+        self.init(red: CGFloat(red) / 255, green: CGFloat(green) / 255, blue: CGFloat(blue) / 255, alpha: 1.0)
+    }
+}
 
+UIColor.init(red: 0, green: 0, blue: 255)
 
+struct Size{
+    var width = 0.0
+    var height = 0.0
+    
+//    init(value: Double){
+//        self.width = value
+//        self.height = value
+//    }
+}
 
+extension Size{
+    init(value: Double){
+        self.width = value
+        self.height = value
+    }
+}
 
-
-
-
+Size()
+Size(width: 12, height: 34)
 
 
 

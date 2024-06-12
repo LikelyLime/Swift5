@@ -43,4 +43,33 @@ func parsing(data: [String: Any]) throws {
    
    // Parsing
 }
-
+//catch문의 경우 가장 까다로운 조건부터 작성한다.
+//catch문에 조건이 없는 경우 가장 마지막에 작성하지 않으면 밑에있는 catch문의 경우 작동하지 않는다.
+func handleError() throws{
+    //함수안에서 error처리를 진행할 경우 모든 error에대한 정의를 해주어야 한다.
+    //handleError() throws라고 선언을 한다면 invlidType에러를 제외한 에러의 경우
+    //handleError를 선언한 부분에다 에러를 던진다.
+    do{
+        try parsing(data: ["name" : ""])
+    }  catch DataParsingError.invalidType{
+        //위의 parsing함수의 두번째 guard문으로 에러가 발생했을때 들어오는 catch문
+        print("invalid type error")
+    }
+}
+func handleError1() throws{
+    //두번째는 catch문만 패턴없이 사용하는 방법이다.
+    do{
+        try parsing(data: ["name" : ""])
+    }  catch {
+        //error는 프로토콜이기 때문에 타입케스팅이 필요
+        if let error = error as? DataParsingError{
+            switch error{
+            case .invalidType:
+                print("invalid type")
+            default:
+                print("handle error")
+            }
+        }
+        
+    }
+}

@@ -40,8 +40,31 @@ import UIKit
  ![initializer](initializer.png)
  ![call](call.png)
  */
+class Postion{
+    var x = 0.0
+    var y: Double
+    var z: Double?  //optional로 초기화 시 자동으로 nil로 초기화
+    //defualt init의 경우에는 컴파일러가 자동으로 생성해 준다.
+    init(){
+        y = 0.0
+    }
+}
 
-
+class sizeObj{
+    var width = 0.0
+    var height = 0.0
+    init(width: Double, height: Double){
+        self.width = width
+        self.height = height
+    }
+    
+    convenience init(value: Double){
+//        self.width = value
+//        self.height = value  될수 있으면 중복을 없앤다.
+        self.init(width: value, height: value)
+    }
+    
+}
 
 
 
@@ -51,6 +74,13 @@ import UIKit
 /*:
  ## Memberwise Initializer
  */
+struct SizeValue{
+    var width = 0.0
+    var height = 0.0
+}
+//구조체를 만들었을 때 디폴트 initializer와 함깨 자동으로 제공됨
+let s = SizeValue()
+SizeValue(width: 1.2, height: 3.4)
 
 
 

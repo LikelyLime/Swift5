@@ -49,13 +49,19 @@ class Car {
    }
 }
 
-var person: Person? = Person()
-var rentedCar: Car? = Car(model: "Porsche")
+var person: Person? = Person()//Person과 강한참조
+var rentedCar: Car? = Car(model: "Porsche")// rentedCar과 강한참조
 
-person?.car = rentedCar
+person?.car = rentedCar// Person인스턴스가 car인스턴스와강한참조로 car 참조카운트 2
+rentedCar?.lessee = person // 반대로 car인스턴스가 강한참조로 person 참조카운트 2
 
+person = nil //person참조카운트가 1감소
+rentedCar = nil //car참조카운트가 1감소
+//서로 강한참조로 되어있기때문에 접근할 방법이 없음 -> Strong Reference Cycle
 
-
+//해결방법
+//weak Reference(약한참조) :
+//unowned Reference(무소유 참조) :
 
 
 

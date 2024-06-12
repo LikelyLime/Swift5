@@ -26,7 +26,9 @@ import UIKit
  # Subscripts
  ![subscript](subscript.png)
  */
+let list = ["A", "B", "C"]
 
+list[0] //subscript문법
 
 
 
@@ -41,12 +43,43 @@ import UIKit
  ![subscript-syntax](subscript-syntax.png)
  */
 
+//메서드나 계산문법과 비슷
+//파라미터 생략 불가능
+//리턴형 생략 불가능
+//get블럭은 생략불가능
 
+class List{
+    var data = [1, 2, 3]
+    
+    subscript(index: Int) -> Int {
+        get{
+            return data[index]
+        }
+        set{
+            data[index] = newValue
+        }
+    }
+}
 
+var l = List()
+l[0]
 
+l[1] = 123
 
+l[0]//파라미터를 두개를 넘기거나 다른 타입을 넣으면 에러발생
 
+struct Matrix {
+    var data = [[1,2,3], [4, 5, 6], [7, 8, 9]]
+    
+    subscript(row: Int, col:Int) -> Int{
+        
+        return data[row][col]
+    }
+}
 
+let m = Matrix()
+//m[0][0]
+m[0,0]// 만약 범위가벗어난다면 Index out of range에러가 뜬다.
 
 
 

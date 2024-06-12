@@ -26,7 +26,9 @@ import UIKit
  ![define](define.png)
  ![protocol-inheritance](protocol-inheritance.png)
  */
-
+protocol Something{
+    func doSomething
+}
 
 
 
@@ -37,6 +39,14 @@ import UIKit
  ![adopting](adopting.png)
  */
 
+struct Size: Something{
+    func doSomething() {
+        //자유롭게 사용가능
+    }
+    
+    
+}
+
 
 
 
@@ -46,6 +56,17 @@ import UIKit
  # Class-Only Protocols
  ![class-only](class-only.png)
  */
+//클래스전용 프로토콜
+protocol SomethingObject: AnyObject, Something{
+    
+}
+//struct Value: SomethingObject{
+//
+//} class가 아니기 때문에 상속이 안됨
 
-
+class Object: SomethingObject{
+    func doSomething() {
+        <#code#>
+    }
+}
 

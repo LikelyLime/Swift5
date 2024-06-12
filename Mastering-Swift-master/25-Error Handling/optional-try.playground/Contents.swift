@@ -25,6 +25,9 @@ import UIKit
  # optional try
  ![optional-try](optional-try.png)
  */
+// try 에러를 던지는 함수는 try표현식을 사용해야 한다.
+// optional try의 경우에는 에러의 경우 nil반환
+// forced try의 경우에는 런타임 에러
 
 enum DataParsingError: Error {
    case invalidType
@@ -44,5 +47,20 @@ func parsing(data: [String: Any]) throws {
    // Parsing
 }
 
+if let _ = try? parsing(data: [:]){
+    print("success")
+}else{
+    print("fail")
+}
+//do-catch문
+do{
+    try parsing(data: [:])
+    print("success")
+} catch{
+    print("fail")
+}
+//결과가 상관없다면
+try? parsing(data: [:])
 
-
+//크래쉬 발생 do-catch문도 사용할 수 없음
+//try! parsing(data: [:])

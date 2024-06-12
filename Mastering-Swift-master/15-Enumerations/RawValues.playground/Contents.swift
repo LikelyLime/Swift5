@@ -38,9 +38,9 @@ enum Alignment: Int{
 //원시값은 향후 값변경이 불가능 하다.
 //값을 저장하지 않으면 이전값을 기준으로 값을 타입에 맞게 저장한다.
 
-Alignment.left.rawValue
-Alignment.right.rawValue
-Alignment.cneter.rawValue
+Alignment.left.rawValue //0
+Alignment.right.rawValue //100
+Alignment.cneter.rawValue //101
 
 //생성자로 원시값이 접근이 가능하다 단, rawValue가 없는값을 입력하면 nil이 출력된다.
 Alignment(rawValue: 0)

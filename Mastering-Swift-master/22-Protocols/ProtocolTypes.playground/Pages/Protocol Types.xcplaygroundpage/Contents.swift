@@ -25,6 +25,7 @@ import Foundation
 /*:
  # Protocol Types
  */
+//protocol의 경우에는 first-class Citizen(독립적인 형식)이다.
 
 protocol Resettable {
    func reset()
@@ -39,7 +40,11 @@ class Size: Resettable {
       height = 0.0
    }
 }
-
+let s = Size()
+s
+let r: Resettable = Size()
+//r.width error발생
+r.reset() //접근가능
 
 
 

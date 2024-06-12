@@ -24,9 +24,39 @@ import UIKit
 /*:
  # Adding Methods
  */
+extension Double{
+    func toFahrenheit() -> Double{
+        return self * 9 / 5 + 32
+    }
+    
+    func toCelsius() -> Double{
+        return (self - 32) * 5 / 9
+    }
+    //-----------인스턴스 메서드 -------------
+    
+    
+    static func converToFahrenheit(from celsius: Double) -> Double{
+        return celsius.toFahrenheit()
+    }
+    static func converToCelsius(from fahrenheit: Double) -> Double{
+        return fahrenheit.toFahrenheit()
+    }
+    //-----------타입 메서드 -------------
+    
+}
 
+let c = 30.0
+c.toFahrenheit()
+Double.converToFahrenheit(from: 30.0)
 
+extension Date{
+    func toString(format: String = "yyyyMMdd") -> String{
+        let privateFormatter = DateFormatter()
+        privateFormatter.dateFormat = format
+        return privateFormatter.string(from: self)
+    }
+}
 
-
-
-
+let day = Date()
+day.toString()
+day.toString(format: "MM.dd.yyyy")

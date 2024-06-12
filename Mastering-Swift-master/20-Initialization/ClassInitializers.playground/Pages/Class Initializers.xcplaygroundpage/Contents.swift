@@ -28,6 +28,28 @@ import UIKit
  # Convenience Initializer
  ![convenience](convenience.png)
  */
+//designated Initializer 지정생성자: class의 모든 속성을 초기화함
+//
+class Postion{
+    var x: Double
+    var y: Double
+    init(x:Double, y:Double){
+        self.x = x
+        self.y = y
+    }
+    
+    convenience init(x: Double){
+        self.init(x: x, y: 0.0)
+    }
+}
+
+let s = Postion.init(x: 1.2)
+s.x //1.2
+s.y //0
+
+
+//Convenience Initializer 간편생성자: 다양한 생성자를 위한 유틸리티 속성의 initializer
+//반드시 모든 속성을 초기화 해야하는 것은 아니다.
 
 
 

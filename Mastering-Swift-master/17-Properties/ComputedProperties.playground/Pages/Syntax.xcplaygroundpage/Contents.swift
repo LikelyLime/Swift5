@@ -25,8 +25,11 @@ import UIKit
  # Computed Properties
  ![computed](computed.png)
  */
-
-
+//메모리를 할당 받는 것이 아니라 다른 속성에 저장된 값을 읽어서 필요한 값을 계산하여 리턴하거나
+//전달받은 속성을 다른 속성에 저장한다.
+//속성에 접근 할 때마다 다른 값이 리턴될 수 있다.
+//항상 var를 실행한다., 열거형에도 추가 할 수 있다.
+//형식추론을 사용할 수 없어 항상 자료형을 입력해야한다.
 class Person {
    var name: String
    var yearOfBirth: Int
@@ -35,10 +38,28 @@ class Person {
       self.name = name
       self.yearOfBirth = year
    }
+    
+    var age: Int{
+        get{
+            let calender = Calendar.current
+            let now = Date()
+            let year = calender.component(.year, from: now)
+            return year - yearOfBirth
+        }
+        set{
+            let calender = Calendar.current
+            let now = Date()
+            let year = calender.component(.year, from: now)
+            yearOfBirth = year - newValue
+        }
+    }
 }
 
+let p = Person(name: "John Doe", year: 2002)
+p.age
 
 
+//setter만 지워서 읽기 전용 속성으로 만들수는 있지만 setter전용 속성은 만들 수 없음
 
 
 

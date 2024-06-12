@@ -27,15 +27,32 @@ import Foundation
  # Type Constraints
  ![type-constraints](type-constraints.png)
  */
-
-func swapValue<T>(lhs: inout T, rhs: inout T) {
+//만약 두 값이 같다면 바로 리턴
+//Type Constraints: 형식 제약 = 위의 형식에서 class를 적용할 수있는 대상만 들어올수있다.
+func swapValue<T: Equatable>(lhs: inout T, rhs: inout T) {
+    if lhs == rhs { return }
    let tmp = lhs
    lhs = rhs
    rhs = tmp
 }
 
+func swapValue(lhs: inout String, rhs: inout String){
+    print("specialized version")
+    if lhs.caseInsensitiveCompare(rhs) == .orderedSame {
+        return
+    }
+    let tmp = lhs
+    lhs = rhs
+    rhs = tmp
+}
 
+var a = 1
+var b = 2
+swapValue(lhs: &a, rhs: &b)
 
+var c = "Swift"
+var d = "Programming"
+swapValue(lhs: &c, rhs: &d)
 
 
 //: [Next](@next)

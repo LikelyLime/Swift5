@@ -26,10 +26,26 @@ import UIKit
  ![Struct](struct.png)
  */
 
+struct Person{
+    var name: String
+    var age : Int
+    
+    func speak(){
+        print("Hello")
+    }
+}
 
 
+//instance생성하는 법
+let p = Person(name: "Steven", age: 34)
 
+//만약 값에 접근하고 싶다면
+p.name
+p.age
+print("\(p.name)")
 
+//함수에 접근하고 싶다면
+p.speak()
 
 
 

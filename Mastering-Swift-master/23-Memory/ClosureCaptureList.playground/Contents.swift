@@ -24,13 +24,15 @@ import UIKit
 /*:
  # Closure Capture List
  */
-
+//
 class Car {
    var totalDrivingDistance = 0.0
    var totalUsedGas = 0.0
    
-   lazy var gasMileage: () -> Double = {
-      return self.totalDrivingDistance / self.totalUsedGas
+   lazy var gasMileage: () -> Double = {[unowned self] in
+//       guard let strongSelf = self else{ return 0.0 }
+//      return strongSelf.totalDrivingDistance / strongSelf.totalUsedGas
+       return self.totalDrivingDistance / self.totalUsedGas
    }
    
    func drive() {
@@ -43,6 +45,12 @@ class Car {
    }
 }
 
+var myCar: Car? = Car()
+myCar?.drive()
+
+myCar?.gasMileage()//강한참조사이클
+
+myCar = nil
 
 
 
@@ -59,9 +67,12 @@ class Car {
  ## Value Type
  ![closurecapturelist-valuetype](closurecapturelist-valuetype.png)
  */
-
-
-
+var a = 0
+var b = 0
+let c = { [a] in print(a,b) }
+a = 1
+b = 2
+c()
 
 /*:
  ## Reference Type

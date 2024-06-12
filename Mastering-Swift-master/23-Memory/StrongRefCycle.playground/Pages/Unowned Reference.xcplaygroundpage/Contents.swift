@@ -27,7 +27,7 @@ import Foundation
  # Unowned Reference
  ![unowned](unowned.png)
  */
-
+//Unowned Reference(무소유 참조) : 약한참조와 비슷하지만 옵셔널타입이 아님
 class Person {
    var name = "John Doe"
    var car: Car?

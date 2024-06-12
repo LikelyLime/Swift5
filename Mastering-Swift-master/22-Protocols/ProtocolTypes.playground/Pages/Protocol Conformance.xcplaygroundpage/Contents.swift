@@ -28,6 +28,8 @@ import UIKit
  ![is](is.png)
  ![as](as.png)
  */
+//protocol conformance는 protocol를 채용하는지의 척도
+//is연산자는 protocol의 채용여부
 
 protocol Resettable {
    func reset()
@@ -45,7 +47,13 @@ class Size: Resettable {
 
 let s = Size()
 
+s is Resettable //true
+s is ExpressibleByNilLiteral
+//as 연산자의 경우에는 instance를 protocol형식으로 캐스팅하거나
+//protocol형식에 저장되어있는 instance를 실제 형식으로 캐스팅할때 사용
 
+let r = Size() as Resettable
+r as? Size//다시 원래대로 캐스팅
 
 
 
